@@ -223,4 +223,18 @@ impl LepTess {
     ) -> Option<leptonica::Boxa> {
         self.tess_api.get_component_images(level, text_only)
     }
+
+    /// Expose the raw capi handle
+    pub fn as_raw_handle_mut(
+        &mut self
+    ) -> &mut tesseract::TessApi {
+        &mut self.tess_api
+    }
+
+    /// Expose the raw capi handle
+    pub fn as_raw_handle(
+        &self
+    ) -> &tesseract::TessApi {
+        &self.tess_api
+    }
 }
